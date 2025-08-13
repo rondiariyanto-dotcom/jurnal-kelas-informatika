@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal Kelas Informatika - Rondi Arianto, S.Kom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-laptop-code"></i>
+                    <div class="logo-text">
+                        <h1>Jurnal Kelas Informatika</h1>
+                        <p>SMK Negeri 1 Indonesia</p>
+                    </div>
+                </div>
+                <div class="teacher-info">
+                    <i class="fas fa-user-tie"></i> Rondi Arianto, S.Kom
+                </div>
+            </div>
+        </header>
+        
+        <nav>
+            <ul class="nav-tabs">
+                <li><button class="tab-link active" data-tab="dashboard"><i class="fas fa-home"></i> Dashboard</button></li>
+                <li><button class="tab-link" data-tab="kelas"><i class="fas fa-school"></i> Manajemen Kelas</button></li>
+                <li><button class="tab-link" data-tab="siswa"><i class="fas fa-users"></i> Manajemen Siswa</button></li>
+                <li><button class="tab-link" data-tab="absensi"><i class="fas fa-clipboard-check"></i> Absensi</button></li>
+                <li><button class="tab-link" data-tab="nilai"><i class="fas fa-chart-line"></i> Nilai Ulangan</button></li>
+                <li><button class="tab-link" data-tab="jurnal"><i class="fas fa-book"></i> Jurnal Harian</button></li>
+            </ul>
+        </nav>
+        
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-chart-pie"></i> Statistik Kelas</h2>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>24</h3>
+                        <p>Total Siswa</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>22</h3>
+                        <p>Siswa Hadir Hari Ini</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>12</h3>
+                        <p>Pertemuan Terlaksana</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-calendar-alt"></i> Agenda Minggu Ini</h2>
+                </div>
+                <ul class="agenda-list">
+                    <li>
+                        <span>Senin, 16 Oktober 2023</span>
+                        <span>Pengenalan Algoritma</span>
+                    </li>
+                    <li>
+                        <span>Selasa, 17 Oktober 2023</span>
+                        <span>Struktur Data Dasar</span>
+                    </li>
+                    <li>
+                        <span>Rabu, 18 Oktober 2023</span>
+                        <span>Praktikum Algoritma</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Manajemen Kelas Tab -->
+        <div id="kelas" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-school"></i> Daftar Kelas</h2>
+                    <button class="btn btn-primary" id="tambahKelasBtn"><i class="fas fa-plus"></i> Tambah Kelas</button>
+                </div>
+                <table id="kelasTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Kelas</th>
+                            <th>Jumlah Siswa</th>
+                            <th>Tahun Ajaran</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-plus-circle"></i> Tambah Kelas Baru</h2>
+                </div>
+                <form id="kelasForm">
+                    <div class="form-group">
+                        <label for="namaKelas">Nama Kelas</label>
+                        <input type="text" id="namaKelas" class="form-control" placeholder="Contoh: XII RPL 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tahunAjaran">Tahun Ajaran</label>
+                        <input type="text" id="tahunAjaran" class="form-control" placeholder="Contoh: 2023/2024" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan Kelas</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Manajemen Siswa Tab -->
+        <div id="siswa" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-users"></i> Daftar Siswa</h2>
+                    <button class="btn btn-purple" id="uploadBtn"><i class="fas fa-file-upload"></i> Upload Data Siswa</button>
+                </div>
+                <table id="siswaTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>NIS</th>
+                            <th>Nama Siswa</th>
+                            <th>Kelas</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-user-plus"></i> Tambah Siswa Baru</h2>
+                </div>
+                <form id="siswaForm">
+                    <div class="form-group">
+                        <label for="nis">NIS</label>
+                        <input type="text" id="nis" class="form-control" placeholder="Nomor Induk Siswa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="namaSiswa">Nama Siswa</label>
+                        <input type="text" id="namaSiswa" class="form-control" placeholder="Nama Lengkap Siswa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kelasSiswa">Kelas</label>
+                        <select id="kelasSiswa" class="form-control" required>
+                            <option value="">Pilih Kelas</option>
+                            <!-- Options akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan Siswa</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Absensi Tab -->
+        <div id="absensi" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-clipboard-check"></i> Absensi Kelas XII RPL 1</h2>
+                    <button class="btn btn-success" id="hadirSemuaBtn"><i class="fas fa-check-circle"></i> Hadir Semua</button>
+                </div>
+                <table id="absensiTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>NIS</th>
+                            <th>Nama Siswa</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+                <div class="card-footer">
+                    <button class="btn btn-primary" id="downloadAbsensiBtn"><i class="fas fa-download"></i> Download Rekap Absensi</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nilai Ulangan Tab -->
+        <div id="nilai" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-chart-line"></i> Nilai Ulangan Harian</h2>
+                    <button class="btn btn-primary" id="tambahNilaiBtn"><i class="fas fa-plus"></i> Tambah Nilai</button>
+                </div>
+                <table id="nilaiTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>NIS</th>
+                            <th>Nama Siswa</th>
+                            <th>UH 1</th>
+                            <th>UH 2</th>
+                            <th>UH 3</th>
+                            <th>Rata-rata</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data akan diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-calculator"></i> Input Nilai Ulangan</h2>
+                </div>
+                <form id="nilaiForm">
+                    <div class="form-group">
+                        <label for="siswaNilai">Nama Siswa</label>
+                        <select id="siswaNilai" class="form-control" required>
+                            <option value="">Pilih Siswa</option>
+                            <!-- Options akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="uh1">Ulangan Harian 1</label>
+                        <input type="number" id="uh1" class="form-control" min="0" max="100" placeholder="0-100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="uh2">Ulangan Harian 2</label>
+                        <input type="number" id="uh2" class="form-control" min="0" max="100" placeholder="0-100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="uh3">Ulangan Harian 3</label>
+                        <input type="number" id="uh3" class="form-control" min="0" max="100" placeholder="0-100" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan Nilai</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Jurnal Harian Tab -->
+        <div id="jurnal" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-book"></i> Jurnal Harian</h2>
+                    <button class="btn btn-primary" id="tambahJurnalBtn"><i class="fas fa-plus"></i> Tambah Jurnal</button>
+                </div>
+                <div id="jurnalList">
+                    <!-- Jurnal akan diisi oleh JavaScript -->
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-edit"></i> Tambah Jurnal Baru</h2>
+                </div>
+                <form id="jurnalForm">
+                    <div class="form-group">
+                        <label for="tanggalJurnal">Tanggal</label>
+                        <input type="date" id="tanggalJurnal" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="materiJurnal">Materi</label>
+                        <textarea id="materiJurnal" class="form-control" rows="3" placeholder="Materi yang diajarkan..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="kegiatanJurnal">Kegiatan</label>
+                        <textarea id="kegiatanJurnal" class="form-control" rows="3" placeholder="Aktivitas pembelajaran..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="kendalaJurnal">Kendala</label>
+                        <textarea id="kendalaJurnal" class="form-control" rows="2" placeholder="Masalah yang ditemui..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="solusiJurnal">Solusi</label>
+                        <textarea id="solusiJurnal" class="form-control" rows="2" placeholder="Penyelesaian masalah..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan Jurnal</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Modal Upload Siswa -->
+        <div id="uploadModal" class="modal">
+            <div class="modal-content">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fas fa-file-upload"></i> Upload Data Siswa</h2>
+                    <button class="btn btn-warning" id="closeModal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="upload-area" id="dropArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Upload File Data Siswa</h3>
+                    <p>Format yang didukung: CSV, XLSX, XLS</p>
+                    <p>Format kolom: NIS, Nama Siswa, Kelas</p>
+                    <div class="file-input-wrapper">
+                        <button class="btn btn-primary"><i class="fas fa-folder-open"></i> Pilih File</button>
+                        <input type="file" id="fileInput" accept=".csv, .xlsx, .xls">
+                    </div>
+                </div>
+                <div class="progress-container" id="progressContainer">
+                    <p>Memproses file...</p>
+                    <div class="progress-bar">
+                        <div class="progress" id="progressBar"></div>
+                    </div>
+                    <p id="progressText">0%</p>
+                </div>
+                <div class="preview-table" id="previewTable">
+                    <h3>Preview Data</h3>
+                    <table id="previewData">
+                        <thead>
+                            <tr>
+                                <th>NIS</th>
+                                <th>Nama Siswa</th>
+                                <th>Kelas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data akan ditampilkan di sini -->
+                        </tbody>
+                    </table>
+                    <button class="btn btn-success" id="saveDataBtn" style="margin-top: 15px;"><i class="fas fa-save"></i> Simpan Data Siswa</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 Jurnal Kelas Informatika - Rondi Arianto, S.Kom | Dibuat dengan ❤️ untuk Pendidikan</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
